@@ -8,9 +8,11 @@
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
 	--bg-image: url(./assets/page.jpeg);
+
 	background-size: contain;
 	background-position: center;
-
+            --move-x:var(--bg-image)
+            --move-y:var(--bg-image)
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -28,7 +30,10 @@ a:hover {
 
 body {
 	background-image: var(--bg-image);
-	transform: perspective(400px) rotate3d(1, -1, 0, 8deg);
+	background-size: cover;
+            background-position: center;
+	background-repeat: none;
+	transform: rotate(var(--move-y)) rotate(var(--move-x));
 	margin: 0;
 	display: flex;
 	place-items: center;
@@ -37,8 +42,7 @@ body {
 }
 
 body:hover {
-	transform: perspective(400px) rotate3d(1, -1, 0, -8deg);
-}
+	transform: perspective(400px) rotate3d(1, -1, 0, -8deg);}
 
 h1 {
 	font-size: 3.2em;
