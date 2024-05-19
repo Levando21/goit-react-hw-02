@@ -4,8 +4,8 @@
 
 import "./App.css";
 
-import Description from "./description/Description";
-import Option from "./option/Option";
+import Description from "./components/description/Description";
+import Option from "./components/option/Option";
 
 function App() {
 	return (

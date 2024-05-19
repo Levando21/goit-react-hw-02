@@ -1,5 +1,5 @@
 /** @format */
-import "../index.css";
+
 const Feedback = ({ feedback }) => {
 	const { good, neutral, bad } = feedback;
 
