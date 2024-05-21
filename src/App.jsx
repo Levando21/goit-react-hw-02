@@ -5,13 +5,13 @@
 import "./App.css";
 
 import Description from "./components/description/Description";
-import Option from "./components/option/Option";
+import Options from "./components/options/Options";
 
 function App() {
 	return (
 		<div className="app-style">
 			<Description />
-			<Option />
+			<Options />
 		</div>
 	);
 }

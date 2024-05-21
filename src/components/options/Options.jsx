@@ -1,6 +1,7 @@
 /** @format */
 import { useState } from "react";
 import Feedback from "../feedback/Feedback";
+
 const Option = () => {
 	const [feed, setFeedback] = useState({ good: 0, bad: 0, neutral: 0 });
 	const handlePushGood = () => {
