@@ -1,16 +1,22 @@
 /** @format */
 
-const Feedback = (give) => {
+const Feedback = ({
+	goodButton,
+	neutralButton,
+	badButton,
+	totalProps,
+	relative,
+}) => {
 	return (
 		<div
 			className="feedback"
 			id="myList">
 			<ul className="feed-list">
-				<li>Good:{give.goodButton} </li>
-				<li>Neutral:{give.neutralButton} </li>
-				<li>Bad: {give.badButton}</li>
-				<li>Total:{give.totalProps}</li>
-				<li>Positivity Rate: {give.relative}</li>
+				<li>Good:{goodButton} </li>
+				<li>Neutral:{neutralButton} </li>
+				<li>Bad: {badButton}</li>
+				<li>Total:{totalProps}</li>
+				<li>Positivity Rate: {relative}</li>
 			</ul>
 		</div>
 	);

@@ -12,7 +12,8 @@ import Notification from "./components/notification/Notification";
 function App() {
 	const [feed, setFeedback] = useState({ good: 0, bad: 0, neutral: 0 });
 	const { good, bad, neutral } = feed;
-	const handlePushGood = () => {
+
+	/* const handlePushGood = () => {
 		setFeedback({ ...feed, good: good + 1 });
 	};
 	const handlePushNeutral = () => {
@@ -20,12 +21,18 @@ function App() {
 	};
 	const handlePushBad = () => {
 		setFeedback({ ...feed, bad: bad + 1 });
+	}; */
+
+	const setTypeCounter = (updateParam) => {
+		setFeedback({ ...feed, [updateParam]: feed[updateParam] + 1 });
 	};
 	const handlePushReset = () => {
 		setFeedback({ good: 0, bad: 0, neutral: 0 });
 	};
+
 	const totalValue = good + bad + neutral;
-	const goodRelativeness = Math.round((good / totalValue) * 100);
+	const goodRelativeness =
+		totalValue === 0 ? 0 : Math.round((good / totalValue) * 100);
 
 	useEffect(() => {
 		window.localStorage.setItem("saved-feedback,", JSON.stringify(feed));
@@ -36,10 +43,11 @@ function App() {
 		<div className="app-style">
 			<Description />
 			<Options
-				handlePushGood={handlePushGood}
-				handlePushBad={handlePushBad}
-				handlePushNeutral={handlePushNeutral}
+				handlePushGood={() => setTypeCounter("good")}
+				handlePushBad={() => setTypeCounter("bad")}
+				handlePushNeutral={() => setTypeCounter("neutral")}
 				handlePushReset={handlePushReset}
+				feedbackCount={totalValue}
 			/>
 			{totalValue === 0 ? (
 				<Notification text="No feedback yet" />
@@ -49,7 +57,7 @@ function App() {
 					neutralButton={neutral}
 					badButton={bad}
 					totalProps={totalValue}
-					relative={goodRelativeness}
+					relative={`${goodRelativeness}%`}
 				/>
 			)}
 		</div>
